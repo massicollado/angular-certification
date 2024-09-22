@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NgForOf} from "@angular/common";
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,8 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-
+  constructor() {
+    console.log('environment',environment.production); // Logs false for development environment
+  }
   title = 'harry-potter-movies';
 }
