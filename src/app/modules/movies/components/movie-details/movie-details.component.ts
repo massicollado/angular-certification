@@ -5,14 +5,18 @@ import {Movie} from "../../../../shared/models/movie.model";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {MoviesService} from "../../../../core/services/movies.service";
 import {
-  MatCell, MatCellDef,
+  MatCell,
+  MatCellDef,
   MatColumnDef,
-  MatHeaderCell, MatHeaderCellDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
   MatHeaderRow,
-  MatHeaderRowDef, MatRow,
+  MatHeaderRowDef,
+  MatRow,
   MatRowDef,
   MatTable
 } from "@angular/material/table";
+import {DurationPipe} from "../../../../shared/pipes/duration.pipe";
 
 @Component({
   selector: 'app-movie-details',
@@ -30,14 +34,14 @@ import {
     MatRow,
     MatHeaderCellDef,
     MatCellDef,
-    RouterLink
+    RouterLink,
+    DurationPipe
   ],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.css'
 })
 export class MovieDetailsComponent implements OnInit, OnDestroy {
 
-  displayedColumns: string[] = ['title', 'value'];
   movie: Movie = {} as Movie;
 
   constructor(private activatedRoute: ActivatedRoute, private movieService: MoviesService) {
@@ -50,7 +54,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     const id = this.activatedRoute.snapshot.params['id'];
     this.movieService.findById(id).pipe().subscribe((movie) => {
       this.movie = movie;
-      console.log('MovieDetailsComponent: movie', movie);
     });
   }
 

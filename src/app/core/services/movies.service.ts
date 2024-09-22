@@ -3,12 +3,14 @@ import {MovieSummary} from "../../shared/models/movie-summary.model";
 import {HttpClient} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {Movie} from "../../shared/models/movie.model";
+import {environment} from "../../../environments/environment";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  private baseUrl: string = 'https://startling-cascaron-87f108.netlify.app';
+  private baseUrl: string = environment.apiUrl;
   private readonly http = inject(HttpClient);
 
   findAll(): Observable<MovieSummary[]> {

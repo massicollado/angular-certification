@@ -27,28 +27,13 @@ export class SearchHeaderComponent implements OnInit, OnDestroy {
     year: string,
     title: string
   }>();
-  yearControl= new FormControl('',[Validators.min(2001), Validators.max(2024)]);
+  yearControl = new FormControl('', [Validators.min(2001), Validators.max(2024)]);
   nameControl = new FormControl('');
 
 
   ngOnInit(): void {
-    console.log('SearchHeaderComponent initialized');
     this.startListeningSearchByName();
     this.startListeningSearchByYear();
-  }
-
-  private startListeningSearchByName() : void {
-    this.nameControl.valueChanges.pipe(
-      takeUntil(this.destroy$),
-      debounceTime(300),
-    ).subscribe((value) => {
-      console.log('SearchHeaderComponent: searchValue emitted', value);
-      const title = value ? value.toLowerCase() : null;
-      this.searchValue.emit({
-        year: this.yearControl.value || '',
-        title : title || ''
-      });
-    });
   }
 
   ngOnDestroy(): void {
@@ -56,13 +41,25 @@ export class SearchHeaderComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  private startListeningSearchByName(): void {
+    this.nameControl.valueChanges.pipe(
+      takeUntil(this.destroy$),
+      debounceTime(300),
+    ).subscribe((value) => {
+      const title = value ? value.toLowerCase() : null;
+      this.searchValue.emit({
+        year: this.yearControl.value || '',
+        title: title || ''
+      });
+    });
+  }
+
   private startListeningSearchByYear() {
     this.yearControl.valueChanges.pipe(
       takeUntil(this.destroy$),
       debounceTime(300),
     ).subscribe((year) => {
-      if (this.yearControl.valid){
-        console.log('SearchHeaderComponent: searchYear emitted', year);
+      if (this.yearControl.valid) {
         this.searchValue.emit({
           year: year || '',
           title: this.nameControl.value || ''

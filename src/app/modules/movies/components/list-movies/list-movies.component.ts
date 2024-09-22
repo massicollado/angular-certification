@@ -29,8 +29,6 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getMovies();
-
-    console.log('ListMoviesComponent initialized');
   }
 
   getMovies(): void {
@@ -39,7 +37,6 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
     ).subscribe((movies) => {
       this.movies = movies;
       this.dataSource = movies;
-      console.log('ListMoviesComponent: movies', movies);
     });
   }
 
@@ -51,7 +48,6 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
   filterMovies($event: { year: string; title: string }) {
 
     if ($event.year || $event.title) {
-      console.log('ListMoviesComponent: filterMovies', $event);
       this.dataSource = this.movies.filter((movie) => {
         const matchesTitle = movie.title.toLowerCase().includes($event.title.toLowerCase());
 
@@ -63,7 +59,7 @@ export class ListMoviesComponent implements OnInit, OnDestroy {
         return matchesTitle && matchesYear;
       });
     } else {
-      this.getMovies();
+      this.dataSource = this.movies;
     }
   }
 }

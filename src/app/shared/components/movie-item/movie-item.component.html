@@ -1,10 +1,10 @@
 <div class="movie-item">
   <div>
     <li class="movie-title">{{movie.title}}</li>
-    <p class="movie-details mb-0">
+    <p class="movie-details">
       <span>Release date: {{movie.release_date}}</span> &nbsp;|&nbsp;
       <span>Budget: {{movie.budget}} million</span> &nbsp;|&nbsp;
-      <span>Duration: {{movie.duration}} min</span>
+      <span>Duration: {{movie.duration | duration}}</span>
     </p>
   </div>
 

@@ -1,8 +1,8 @@
 <div class="list-movies-container">
   <app-search-header (searchValue)="filterMovies($event)"></app-search-header>
   <ng-container *ngFor="let movie of dataSource">
-    <app-movie-item [movie]="movie">
-
+    <app-movie-item
+      [movie]="movie">
     </app-movie-item>
   </ng-container>
 </div>

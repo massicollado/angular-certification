@@ -1,56 +1,53 @@
-<div class="container my-4">
-  <div class="mb-3">
-    <a [routerLink]="['/']">
-      <button mat-button color="primary">
+<div class="container">
+    <div>
+        <a [routerLink]="['/']">
+            <button mat-button color="primary">
+                <mat-icon>home</mat-icon>
+                Back
+            </button>
+        </a>
 
-        <mat-icon>home</mat-icon>
-        Back
-
-      </button>
-    </a>
-
-  </div>
-
-  <h1>{{ movie.title }}</h1>
-
-  <div class="row mt-3">
-    <div class="col-md-3">
-      <img [src]="movie.poster" [alt]="movie.title" class="img-fluid">
     </div>
 
-    <div class="col-md-9">
-      <h5><strong>Summary:</strong></h5>
-      <p>
-        {{ movie.summary }}
-      </p>
-    </div>
-  </div>
+    <h1>{{ movie.title }}</h1>
+    <div>
+        <div>
+            <img [src]="movie.poster" [alt]="movie.title" class="img-fluid">
+        </div>
 
-  <div class="mt-4">
-    <h4>Details</h4>
-    <table class="table table-bordered">
-      <tbody>
-      <tr>
-        <th scope="row">Box office</th>
-        <td>{{ movie.box_office }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Budget</th>
-        <td>{{ movie.budget }} million</td>
-      </tr>
-      <tr>
-        <th scope="row">Duration</th>
-        <td>{{ movie.duration }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Producers</th>
-        <td>{{ movie.producers.join(', ') }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Cinematographers</th>
-        <td>{{ movie.cinematographers.join(', ') }}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+        <div>
+            <h5><strong>Summary:</strong></h5>
+            <p>
+                {{ movie.summary }}
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h4>Details</h4>
+        <table>
+            <tbody>
+            <tr>
+                <th scope="row">Box office</th>
+                <td>{{ movie.box_office }} million</td>
+            </tr>
+            <tr>
+                <th scope="row">Budget</th>
+                <td>{{ movie.budget }} million</td>
+            </tr>
+            <tr>
+                <th scope="row">Duration</th>
+                <td>{{ movie.duration | duration }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Producers</th>
+                <td>{{  movie.producers ? movie.producers.join(', ') : 'No producers available' }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Cinematographers</th>
+                <td>{{  movie.cinematographers ? movie.cinematographers.join(', ') : 'No cinematographers'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
