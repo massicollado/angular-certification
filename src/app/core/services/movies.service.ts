@@ -8,7 +8,7 @@ import {Movie} from "../../shared/models/movie.model";
   providedIn: 'root'
 })
 export class MoviesService {
-  private baseUrl: string = 'http://localhost:4200';
+  private baseUrl: string = 'https://startling-cascaron-87f108.netlify.app';
   private readonly http = inject(HttpClient);
 
   findAll(): Observable<MovieSummary[]> {
