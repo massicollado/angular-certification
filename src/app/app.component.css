@@ -1,0 +1,12 @@
+.harry-potter-background {
+  width: 100%;
+  height: 100vh;
+  padding-top: 20px;
+  background: linear-gradient(#ccd0e5, #8a888d);
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 60%;
+  }
+}

@@ -1,0 +1,8 @@
+.header{
+  margin-bottom: 15px;
+}
+
+.inputs-container{
+  display: flex;
+  gap: 12px;
+}

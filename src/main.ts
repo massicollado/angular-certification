@@ -145,6 +145,7 @@ const handlers = [
     return HttpResponse.json(options[params.id]);
   }),
   http.get('/movies', ({ request, params, cookies }) => {
+    console.log("movies")
     return HttpResponse.json([
       {
         "id": "e80d5a37-620e-4be2-92b9-fb1f5262494f",

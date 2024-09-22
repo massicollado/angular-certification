@@ -1,0 +1,7 @@
+.row{
+  display: flex;
+}
+.img-fluid{
+  width: 200px;
+  height: auto;
+}

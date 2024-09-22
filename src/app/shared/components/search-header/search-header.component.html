@@ -1,0 +1,17 @@
+<div class="d-flex flex-column p-4 header">
+  <span>Filters</span>
+  <div class="inputs-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" [formControl]="nameControl">
+      <mat-hint>Enter a movie title</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Year</mat-label>
+      <input matInput placeholder="Year" type="number" [formControl]="yearControl">
+      <mat-hint>Enter a valid year</mat-hint>
+    </mat-form-field>
+  </div>
+
+</div>
